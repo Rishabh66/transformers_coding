@@ -20,3 +20,10 @@ class PositionanlEncoding(nn.Module):
         self.d_model = d_model
         self.max_len = max_len
         self.dropout = nn.Dropout(dropout)
+        
+        # Create positional encoding matrix
+        pe = torch.zeros(max_len, d_model)
+        
+        # create a vector of shape (max_len, 1)
+        position = torch.arange(0, max_len, dtype= torch.float).unsqueeze(1)
+        
